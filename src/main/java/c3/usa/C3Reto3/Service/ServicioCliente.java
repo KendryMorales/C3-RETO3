@@ -42,14 +42,17 @@ public class ServicioCliente {
         if(client.getIdClient()!=null){
             Optional<Cliente> e= metodosCrud.getCliente(client.getIdClient());
             if(!e.isEmpty()){
+                if(client.getEmail()!=null){
+                    e.get().setEmail(client.getEmail());
+                }
+                if(client.getPassword()!=null){
+                    e.get().setPassword(client.getPassword());
+                }
                 if(client.getName()!=null){
                     e.get().setName(client.getName());
                 }
                 if(client.getAge()!=null){
                     e.get().setAge(client.getAge());
-                }
-                if(client.getPassword()!=null){
-                    e.get().setPassword(client.getPassword());
                 }
                 metodosCrud.save(e.get());
                 return e.get();

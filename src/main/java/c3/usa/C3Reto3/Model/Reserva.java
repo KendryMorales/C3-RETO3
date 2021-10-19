@@ -93,8 +93,6 @@ public class Reserva implements Serializable{
     public void setScore(String score) {
         this.score = score;
     }
-
    
-    
 }
 

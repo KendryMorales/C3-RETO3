@@ -42,11 +42,11 @@ public class ServicioCategoria {
         if(categoria.getId()!=null){
             Optional<Categoria>g=metodosCrud.getCategoria(categoria.getId());
             if(!g.isEmpty()){
-                if(categoria.getDescription()!=null){
-                    g.get().setDescription(categoria.getDescription());
-                }
                 if(categoria.getName()!=null){
                     g.get().setName(categoria.getName());
+                }
+                if(categoria.getDescription()!=null){
+                    g.get().setDescription(categoria.getDescription());
                 }
                 return metodosCrud.save(g.get());
             }

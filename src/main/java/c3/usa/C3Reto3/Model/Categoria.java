@@ -30,7 +30,7 @@ public class Categoria implements Serializable {
     //Relacion con la tabla cabin
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="category")
     @JsonIgnoreProperties("category")    
-    private List<Cabin> cabin;
+    private List<Cabin> cabins;
     
 
     public Integer getId() {
@@ -57,14 +57,11 @@ public class Categoria implements Serializable {
         this.description = description;
     }
 
-    public List<Cabin> getCabin() {
-        return cabin;
+    public List<Cabin> getCabins() {
+        return cabins;
     }
 
-    public void setCabin(List<Cabin> cabin) {
-        this.cabin = cabin;
-    }
-    
-    
-    
+    public void setCabins(List<Cabin> cabins) {
+        this.cabins = cabins;
+    }   
 }
