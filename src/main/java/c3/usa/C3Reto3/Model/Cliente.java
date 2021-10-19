@@ -1,6 +1,7 @@
 package c3.usa.C3Reto3.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -18,6 +19,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "client")
+@JsonPropertyOrder({"idClient","email","password", "name", "age", "messages", "reservations"})
 public class Cliente implements Serializable {
 
     @Id
