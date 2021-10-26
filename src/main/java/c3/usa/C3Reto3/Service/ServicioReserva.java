@@ -51,6 +51,15 @@ public class ServicioReserva {
                 if(reservation.getStatus()!=null){
                     e.get().setStatus(reservation.getStatus());
                 }
+                if(reservation.getCabin()!=null){
+                    e.get().setCabin(reservation.getCabin());
+                }
+                if(reservation.getClient()!=null){
+                    e.get().setClient(reservation.getClient());
+                }
+                if(reservation.getScore()!=null){
+                    e.get().setScore(reservation.getScore());
+                }
                 metodosCrud.save(e.get());
                 return e.get();
             }else{

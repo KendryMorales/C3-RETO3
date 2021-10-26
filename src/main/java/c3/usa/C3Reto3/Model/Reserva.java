@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @Table(name = "reservation")
 @JsonPropertyOrder({"idReservation","startDate","devolutionDate", "status", "cabin", "client", "score"})
 public class Reserva implements Serializable{
-        @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
     private Date startDate;
@@ -37,7 +37,12 @@ public class Reserva implements Serializable{
     @JsonIgnoreProperties({"reservations","messages"})
     private Cliente client;
 
-    private String score; //depende el grupo
+//    private String score; //depende el grupo
+    
+    @ManyToOne
+    @JoinColumn(name = "reservations_score")
+    @JsonIgnoreProperties({"reservations"})
+    private Score score;
 
     public Integer getIdReservation() {
         return idReservation;
@@ -87,13 +92,15 @@ public class Reserva implements Serializable{
         this.client = client;
     }
 
-    public String getScore() {
+    public Score getScore() {
         return score;
     }
 
-    public void setScore(String score) {
-        this.score = score;
+    public void setScore(Score scores) {
+        this.score = scores;
     }
+
+
    
 }
 
